@@ -3,15 +3,24 @@ import { useCookies } from "react-cookie";
 import PosesCard from "./FavoritesPosesCard";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import { useLocation } from "react-router-dom";
+// import { useLocation } from "react-router-dom";
 
 export default function FavoritePosesList({}) {
   const [cookies, setCookie, removeCookie] = useCookies(null);
   const [apiData, setApiData] = useState(null);
 
   const userEmail = cookies.Email;
-  const location = useLocation();
-  const loggedIn = location.state;
+  // const location = useLocation();
+  // const loggedIn = location.state;
+  const [loggedIn, setLoggedIn] = useState(false);
+
+  useEffect(() => {
+    if (cookies.Email && cookies.AuthToken) {
+      setLoggedIn(true);
+    } else {
+      setLoggedIn(false);
+    }
+  }, [cookies]);
 
   const getPoseData = async (pose) => {
     return axios
@@ -99,7 +108,7 @@ export default function FavoritePosesList({}) {
                 <PosesCard selectedPose={poseObj} />
               </div>
             ))}
-          {apiData.length === 0 && (
+          {apiData?.length === 0 && (
             <div className="text-white text-2xl text-center">
               You currently have no favorites
             </div>
