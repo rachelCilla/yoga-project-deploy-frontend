@@ -23,7 +23,7 @@ export default function ChosenBenefitsPoseList({
     <div className="m-2   pt-3 rounded">
       <div className="bg-light mb-2 rounded p-2">
         <h3 className="m-1 mb-2">
-          List of poses that
+          List of poses related to:
           <span className="block underline ">{activeSubCategory} </span>{" "}
         </h3>
         <button
