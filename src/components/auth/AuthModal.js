@@ -17,6 +17,8 @@ export default function Auth({ auth, handleClose }) {
   const [email, setEmail] = useState(null);
   const [confirmPassword, setConfirmPassword] = useState(null);
   const [showSuccess, setShowSuccess] = useState(false);
+  const [loading, setLoading] = useState(false);
+
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -55,6 +57,7 @@ export default function Auth({ auth, handleClose }) {
   // }
   const handleSubmit = async (e, endpoint) => {
     e.preventDefault();
+    setLoading(true);
     if (!isLogin && password !== confirmPassword) {
       setError("Passwords do not match");
       return;
@@ -73,14 +76,17 @@ export default function Auth({ auth, handleClose }) {
 
       if (data.detail) {
         setError(data.detail);
+        setLoading(false);
       } else {
         setCookie("Email", data.email);
         setCookie("AuthToken", data.token);
         setShowSuccess(true);
+        setLoading(false);
         // window.location.reload();
       }
     } catch (error) {
       console.log("error", error);
+      setLoading(false);
       setError("Failed to login/signup");
       setShowSuccess(false);
     }
@@ -201,6 +207,12 @@ export default function Auth({ auth, handleClose }) {
                   </div>
                 )}
               </div>
+              {loading && (
+                <p className="text-blue-600  font-semibold">
+                  {" "}
+                  Loading... Please wait a moment
+                </p>
+              )}
               {/* ERROR MESSAGE */}
               {error && (
                 <p className="text-red-600  font-semibold"> Error: {error}</p>
