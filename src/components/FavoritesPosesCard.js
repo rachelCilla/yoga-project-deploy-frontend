@@ -77,18 +77,18 @@ export default function PosesCard({ selectedPose, showingFavorites }) {
   //   }, [poseData, categoriesPose, difficultyPose]);
 
   // Check logged in
-  useEffect(() => {
-    if (cookies.Email) {
-      setLoggedIn(true);
-    } else {
-      setLoggedIn(false);
-    }
-  }, [userEmail]);
+  // useEffect(() => {
+  //   if (cookies.Email) {
+  //     setLoggedIn(true);
+  //   } else {
+  //     setLoggedIn(false);
+  //   }
+  // }, [userEmail]);
 
   // login popup
-  const loginPopup = () => {
-    setOpenLogin(true);
-  };
+  // const loginPopup = () => {
+  //   setOpenLogin(true);
+  // };
 
   // REMOVE FROM FAVORITES-DB
   const removeFromFavorites = async (pose_name) => {
@@ -156,7 +156,7 @@ export default function PosesCard({ selectedPose, showingFavorites }) {
             <Card.Text>{selectedPose.pose_benefits}</Card.Text>
             {error && <p>{error}</p>}
 
-            {!loggedIn && (
+            {/* {!loggedIn && (
               <Button
                 type="button"
                 className="btn btn-secondary me-3"
@@ -164,9 +164,9 @@ export default function PosesCard({ selectedPose, showingFavorites }) {
               >
                 Add to Favorites
               </Button>
-            )}
+            )} */}
 
-            {loggedIn &&
+            {/* {loggedIn &&
               !showingFavorites &&
               selectedPose &&
               selectedPose.english_name && (
@@ -178,8 +178,9 @@ export default function PosesCard({ selectedPose, showingFavorites }) {
                     ? "Added Successfully!"
                     : "Add to Favorites"}
                 </Button>
-              )}
-            {showingFavorites && selectedPose && selectedPose.english_name && (
+              )} */}
+
+            {
               <Button
                 variant="danger"
                 onClick={() => removeFromFavorites(selectedPose.english_name)}
@@ -188,7 +189,7 @@ export default function PosesCard({ selectedPose, showingFavorites }) {
                   ? "Removed Successfully!"
                   : "Remove from Favorites"}
               </Button>
-            )}
+            }
             <Link
               className="btn btn-secondary"
               style={{
@@ -206,7 +207,8 @@ export default function PosesCard({ selectedPose, showingFavorites }) {
             >
               More Info
             </Link>
-            {openLogin && (
+
+            {/* {openLogin && (
               <>
                 <p
                   className="m-2 mt-3 font-weight-bold h5"
@@ -215,8 +217,8 @@ export default function PosesCard({ selectedPose, showingFavorites }) {
                   }}
                 >
                   Please login or signup to add favorites:
-                </p>
-                <Link to="/auth">
+                </p> */}
+            {/* <Link to="/auth">
                   <Button
                     className="me-3"
                     style={{
@@ -226,9 +228,9 @@ export default function PosesCard({ selectedPose, showingFavorites }) {
                   >
                     Login or Sign Up
                   </Button>
-                </Link>
-              </>
-            )}
+                </Link> */}
+            {/* </>
+            )} */}
           </Card.Body>
         </Card>
       ) : null}
