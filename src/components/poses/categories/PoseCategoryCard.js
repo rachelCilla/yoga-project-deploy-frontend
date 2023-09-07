@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
 // children
-import ChosenCategoryPoseList from "./ChosenCategoryPoseList";
+
 // import { CategoriesContext } from "../PoseIntro";
 import { Link, useOutletContext } from "react-router-dom";
 

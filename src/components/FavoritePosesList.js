@@ -5,14 +5,9 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 
-export default function FavoritePosesList({
-  handleBackButtonClick,
-  favoritePose,
-  showFavorites,
-}) {
+export default function FavoritePosesList({}) {
   const [cookies, setCookie, removeCookie] = useCookies(null);
   const [apiData, setApiData] = useState(null);
-  const [showingFavorites, setShowingFavorites] = useState(true);
 
   const userEmail = cookies.Email;
   const location = useLocation();
@@ -101,10 +96,7 @@ export default function FavoritePosesList({
           {apiData !== null &&
             apiData.map((poseObj) => (
               <div style={{ margin: "3rem" }} key={poseObj.id}>
-                <PosesCard
-                  selectedPose={poseObj}
-                  showingFavorites={showingFavorites}
-                />
+                <PosesCard selectedPose={poseObj} />
               </div>
             ))}
           {apiData.length === 0 && (

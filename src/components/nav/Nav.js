@@ -1,33 +1,23 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
-import FavoritePosesList from "../FavoritePosesList";
+
 import { useCookies } from "react-cookie";
-import Auth from "../auth/AuthModal";
-import yogaIcon from "../../images/icons8-prenatal-yoga-50.png";
-import { motion, AnimatePresence } from "framer-motion";
-import { Outlet, Link } from "react-router-dom";
-import { useOutletContext } from "react-router-dom";
+
+import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 import {
   MDBContainer,
   MDBNavbar,
-  MDBNavbarBrand,
   MDBNavbarToggler,
   MDBIcon,
   MDBNavbarNav,
   MDBNavbarItem,
   MDBNavbarLink,
-  MDBBtn,
-  MDBDropdown,
-  MDBDropdownToggle,
-  MDBDropdownMenu,
-  MDBDropdownItem,
   MDBCollapse,
 } from "mdb-react-ui-kit";
 
 export default function Nav() {
-  const [showBasic, setShowBasic] = useState(false);
-  const [showFavorites, setShowFavorites] = useState(false);
   const [cookies, setCookie, removeCookie] = useCookies(null);
   const [loggedIn, setLoggedIn] = useState(false);
   const [auth, setAuth] = useState(false);
@@ -129,7 +119,7 @@ export default function Nav() {
               </MDBNavbarItem>
 
               <MDBNavbarItem>
-                <Link to="/favorites" className="no-underline" state={loggedIn}>
+                <Link to="/favorites" className="no-underline">
                   <MDBNavbarLink className="text-white font-raleway text-lg  ">
                     My Favorites
                   </MDBNavbarLink>
