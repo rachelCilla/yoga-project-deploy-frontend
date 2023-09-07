@@ -36,7 +36,7 @@ export default function Nav() {
   const signOut = () => {
     removeCookie("Email");
     removeCookie("AuthToken");
-    window.location.reload();
+    setLoggedIn(false);
   };
 
   useEffect(() => {

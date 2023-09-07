@@ -8,7 +8,7 @@ const SuccessCard = ({}) => {
   const navigate = useNavigate();
   return (
     <div className="w-full h-full bg-white/30 flex justify-center items-center ">
-      <div className=" p-5 bg-white h-4/6  h-4/6 z-5 drop-shadow-2xl rounded-xl text-gray-900 border-2 border-gray-500 m-0 ">
+      <div className=" p-5 bg-white   h-5/6 z-5 drop-shadow-2xl rounded-xl text-gray-900 border-2 border-gray-500 m-0 ">
         <div className="title-inner  h-full  w-full text-center">
           <Link to="/home">
             <svg
@@ -26,7 +26,7 @@ const SuccessCard = ({}) => {
               />
             </svg>
           </Link>
-          <h1 className="mt-1 font-mont font-semibold text-primary5 text-center text-2xl text-slate-600 lg:text-6xl   ">
+          <h1 className="mt-1 font-mont font-semibold text-primary5 text-center text-2xl text-slate-600 lg:text-4xl   ">
             Registration Successful!{" "}
           </h1>
 
